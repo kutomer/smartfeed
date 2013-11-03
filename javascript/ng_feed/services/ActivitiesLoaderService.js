@@ -1,6 +1,6 @@
 'use strict';
 
-kruvbook.factory('RiverLoaderService', function($http, $q) {
+kruvbook.factory('ActivitiesLoaderService', function($http, $q) {
         var lastItemGuid = null;
 
         return {

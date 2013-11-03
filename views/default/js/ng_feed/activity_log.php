@@ -1,3 +1,3 @@
 <?php
 $js_dir = elgg_get_config('path') . 'mod/smartfeed/javascript/ng_feed/';
-require_once $js_dir . 'directives/RiverItem.js';
+require_once $js_dir . 'directives/ActivityLog.js';

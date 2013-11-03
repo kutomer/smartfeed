@@ -1,24 +1,21 @@
-<section>
-    <hgroup>
-        <h1><?php echo elgg_echo('newsfeed:title'); ?></h1>
-        <h2><?php echo elgg_echo('newsfeed:subtitle');?></h2>
-    </hgroup>
+<section ng-controller="FeedCtrl" class="news-feed-wrapper">
 
-    <section>
-        <section ng-controller="FeedCtrl">
+    <div ng-show="!activityLogs.length">
+        <h2><?= elgg_echo('newsfeed:nonews'); ?></h2>
+    </div>
 
-            <ul infinite-scroll='loadMore()' infinite-scroll-distance='2'>
-                <li ng-repeat="river in riverItems">
-                    <river-item item="river"></river-item>
-                </li>
-            </ul>
+    <ul infinite-scroll='loadMore()' infinite-scroll-distance='2' class="elgg-list">
+        <li ng-repeat="activityLog in activityLogs">
+            <activity-log item="activityLog"></activity-log>
+        </li>
+    </ul>
 
-        </section>
-        <?php
-            elgg_load_js('ng_feed_app');
-            elgg_load_js('river_loader_service');
-            elgg_load_js('feed_ctrl');
-            elgg_load_js('river_item');
-        ?>
-    </section>
+    <?php
+        /* load all the feed required JS */
+        elgg_load_js('ng_feed_app');
+        elgg_load_js('activities_loader_service');
+        elgg_load_js('feed_ctrl');
+        elgg_load_js('activity_log');
+    ?>
 </section>
+
