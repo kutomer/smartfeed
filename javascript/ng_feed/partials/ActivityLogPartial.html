@@ -1,7 +1,19 @@
-<div class="activity-log-wrapper">
-    <!--
-    @TODO - add here all the river item wrapper markup and styling
-    -->
-    <div ng-include data-src="getPartialUrl(activityLog.action, )"></div>
-</div>
+<article class="activity-log-wrapper">
+    <!-- @TODO - add here all the activityLog wrapper markup and styling -->
+    <header>
+        <hgroup>
+            <h2> {{ activityLog.actor.title }} >> {{ activityLog.target.title }} </h2>
+
+            <h3> {{ activityLog.description }} </h3>
+        </hgroup>
+    </header>
+
+    <!-- This is a dynamic view for the related object by the his type -->
+    <!-- The ng-include saves the Controller -->
+    <div ng-include data-src="getPartialUrl(activityLog.relatedObject.type)"></div>
+
+    <fotter>
+        <!-- @TODO - add here all the activtyLog operations: Like, Comment, Expand etc. -->
+    </fotter>
+</article>
 

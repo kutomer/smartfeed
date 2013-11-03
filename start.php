@@ -15,6 +15,11 @@ function smartfeed_init() {
     // load angualr at the header for all the site (can be extracted to the core \ other plugin)
     elgg_load_js('angular');
 
+    $url = elgg_get_simplecache_url('js', 'vendors/underscore');
+    elgg_register_simplecache_view('js/vendors/underscore');
+    elgg_register_js('underscore', $url);
+    elgg_load_js('underscore');
+
     $url = elgg_get_simplecache_url('js', 'vendors/ng_infinite_scroll');
     elgg_register_simplecache_view('js/vendors/ng_infinite_scroll');
     elgg_register_js('ng_infinite_scroll', $url);

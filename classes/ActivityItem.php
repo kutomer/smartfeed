@@ -1,9 +1,9 @@
 <?php
 class ActivityItem {
-    private $guid;
-    private $title;
-    private $type;
-    private $description;
+    public $guid;
+    public $title;
+    public $type;
+    public $description;
 
     function __construct($guid, $type , $title, $description)
     {
