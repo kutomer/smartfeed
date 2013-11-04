@@ -42,6 +42,10 @@ function smartfeed_init() {
     elgg_register_simplecache_view('js/ng_feed/activity_log');
     elgg_register_js('activity_log', $url);
 
+    $url = elgg_get_simplecache_url('js', 'ng_feed/auto_refresh');
+    elgg_register_simplecache_view('js/ng_feed/auto_refresh');
+    elgg_register_js('auto_refresh', $url);
+
     /* register REST API for the feed */
     elgg_ws_expose_function(
         "get_feed",

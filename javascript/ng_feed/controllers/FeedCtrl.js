@@ -7,9 +7,19 @@ kruvbook.controller('FeedCtrl', function($scope, $q, ActivitiesLoaderService) {
             ActivitiesLoaderService.loadMore()
                 .then(function(data) {
                     $scope.activityLogs = $scope.activityLogs.concat(data);
+                    $scope.errorMsg = '';
                 }, function(data) {
-                    // @TODO - show error here when connection to the server failed
-                    console.log("Fetching river items from the server failed!");
+                    $scope.errorMsg = "Sorry amigo, it seems like we have a problem fetching you'r feed...";
+                });
+        }
+
+        $scope.refresh = function() {
+            ActivitiesLoaderService.refresh()
+                .then(function(data) {
+                    // @TODO:
+                    // 1. use _ to add the new acrivities log at the begining
+                    // 2. display cool message like in Facebook mobile application - "You have 9 new unread msgs"
+                    $scope.activityLogs = $scope.activityLogs.concat(data);
                 });
         }
 
