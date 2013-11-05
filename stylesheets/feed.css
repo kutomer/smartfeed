@@ -1,0 +1,12 @@
+#unseenFeed {
+    border-bottom: 3px dashed ThreeDDarkShadow;
+    margin-bottom: 2em;
+}
+
+.activity-log-wrapper {
+    margin: 1em 0;
+}
+
+.activity-log-title h4 {
+    background-color: lightblue;
+}
