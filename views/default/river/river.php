@@ -3,7 +3,7 @@
 elgg_load_css('feed');
 ?>
 
-<section ng-controller="FeedCtrl" class="news-feed-wrapper">
+<section ng-app="kruvbook" ng-controller="FeedCtrl" class="news-feed-wrapper">
     <div ng-show="!activityLogs.length">
         <h2><?= elgg_echo('newsfeed:nonews'); ?></h2>
     </div>
