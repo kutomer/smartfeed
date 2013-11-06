@@ -39,6 +39,10 @@ function smartfeed_init()
     elgg_register_simplecache_view('js/ng_feed/activities_loader_service');
     elgg_register_js('activities_loader_service', $url);
 
+    $url = elgg_get_simplecache_url('js', 'ng_feed/pubsub_broker_service');
+    elgg_register_simplecache_view('js/ng_feed/pubsub_broker_service');
+    elgg_register_js('pubsub_broker_service', $url);
+
     $url = elgg_get_simplecache_url('js', 'ng_feed/activity_log');
     elgg_register_simplecache_view('js/ng_feed/activity_log');
     elgg_register_js('activity_log', $url);
