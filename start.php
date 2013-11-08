@@ -43,6 +43,10 @@ function smartfeed_init()
     elgg_register_simplecache_view('js/ng_feed/pubsub_broker_service');
     elgg_register_js('pubsub_broker_service', $url);
 
+    $url = elgg_get_simplecache_url('js', 'ng_feed/pretty_date');
+    elgg_register_simplecache_view('js/ng_feed/pretty_date');
+    elgg_register_js('pretty_date', $url);
+
     $url = elgg_get_simplecache_url('js', 'ng_feed/activity_log');
     elgg_register_simplecache_view('js/ng_feed/activity_log');
     elgg_register_js('activity_log', $url);
@@ -90,19 +94,23 @@ function get_feed($user_guid, $last_item_guid)
     $result = array();
     for ($i = $last_item_guid; $i < $last_item_guid + 5; $i++) {
         $result[] = new Activity($i,
+            time() - 100 * $i,
             'create',
             'Tomer created comment on a post',
             new ActivityItem($user_guid,
+                time() - 80 * $i,
                 'ElggUser',
                 'Tomer Kruvi',
                 'very cool guy! :)'
             ),
             new ActivityItem('2222',
+                time() - 120 * $i,
                 'ElggUser',
                 'Someo nee lse',
                 'im someone else!'
             ),
             new ActivityItem('3333',
+                time() - 60 * $i,
                 'ElggPost',
                 'the post title',
                 'this is super interesting post...'
@@ -119,19 +127,23 @@ function fetch_new_items($user_guid, $last_item_guid)
     $result = array();
     for ($i = $last_item_guid; $i < $last_item_guid + 2; $i++) {
         $result[] = new Activity($i,
+            time(),
             'create',
             'Tomer created comment on a post in a page',
             new ActivityItem($user_guid,
+                time() - 100,
                 'ElggUser',
                 'Tomer Kruvi',
                 'very cool guy! :)'
             ),
             new ActivityItem('4444',
+                time() - 50 * $i,
                 'ElggPage',
                 'SecertPageName',
                 'sheker sheker'
             ),
             new ActivityItem('5555',
+                time() - 40 * $i,
                 'ElggPost',
                 'funny story!! thx!',
                 'this is super interesting post...'

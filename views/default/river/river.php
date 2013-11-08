@@ -34,6 +34,7 @@ elgg_load_css('feed');
     /* load all the feed required JS */
     elgg_load_js('ng_feed_app');
     elgg_load_js('activities_loader_service');
+    elgg_load_js('pretty_date');
     elgg_load_js('pubsub_broker_service');
     elgg_load_js('feed_ctrl');
     elgg_load_js('activity_log');

@@ -1,6 +1,6 @@
 'use strict';
 
-kruvbook.factory('PubsubBroker', function ($http, $q) {
+kruvbook.factory('PubsubBroker', function ($q) {
         var cache = {};
 
         return {
